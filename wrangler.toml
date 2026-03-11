@@ -1,0 +1,11 @@
+name = "cms-publisher"
+main = "src/index.js"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+[triggers]
+crons = ["*/1 * * * *"]  # Every minute
+
+# Environment variables — set via `wrangler secret put` or dashboard
+# CMS_API_URL, CMS_API_KEY, CMS_USER_EMAIL, CMS_USER_PASSPHRASE
+# CMS_SITE_ID, CF_ACCOUNT_ID, CF_API_TOKEN, CF_PAGES_PROJECT
