@@ -75,18 +75,18 @@ export function createApiClient(env) {
     async fetchPending() {
       const result = await apiCall({
         action: 'list',
-        table: '__publish_queue__',
+        table: 'queue',
         filters: { status: 'pending' },
       });
       return result.data || [];
     },
 
     async updateQueueItem(id, updates) {
-      await apiCall({ action: 'update', table: '__publish_queue__', id, data: updates });
+      await apiCall({ action: 'update', table: 'queue', id, data: updates });
     },
 
     async deleteQueueItem(id) {
-      await apiCall({ action: 'delete', table: '__publish_queue__', id });
+      await apiCall({ action: 'delete', table: 'queue', id });
     },
   };
 }

@@ -1,5 +1,5 @@
 // CMS Publisher Worker — Cloudflare Worker with Cron Trigger.
-// Polls __publish_queue__ and runs the full publish pipeline
+// Polls queue and runs the full publish pipeline
 // (fetch CMS data → render HTML in-memory → deploy to CF Pages).
 
 import { createApiClient } from './api.js';
@@ -96,7 +96,7 @@ async function cleanup(env) {
   try {
     const result = await api.apiCall({
       action: 'list',
-      table: '__publish_queue__',
+      table: 'queue',
       filters: { status: 'completed' },
     });
     const items = result.data || [];
